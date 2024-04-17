@@ -1,11 +1,9 @@
-## Deep Learning Challenge
+# Deep Learning Challenge - Alphabet Soup Funding
 
-## Alphabet Soup Funding
-
-# Purpose
+## Purpose
 The nonprofit foundation Alphabet Soup wants a tool that can help it select the applicants for funding with the best chance of success in their ventures. With machine learning and neural networks, I’ll use the features in the provided dataset to create a binary classifier that can predict whether applicants will be successful if funded by Alphabet Soup.
 
-# Data Preprocessing
+## Data Preprocessing
  - What variable(s) are the target(s) for your model?
     - The target for each model was the IS_SUCCESSFUL column. The goal is to predict which applicants will have best chance of success in their ventures.
  - What variable(s) are the features for your model?
@@ -13,21 +11,35 @@ The nonprofit foundation Alphabet Soup wants a tool that can help it select the 
  - What variable(s) should be removed from the input data because they are neither targets nor features?
     - I removed EIN and NAME as they are neither features or targets.
 
-# Compiling, Training, and Evaluating the Model
+## Compiling, Training, and Evaluating the Model
  - How many neurons, layers, and activation functions did you select for your neural network model, and why?
-    - For the first model I used two hidden layers with 100 neurons each. ReLU activation functions are used in the hidden layers to introduce non-linearity and allow the model to learn complex relationships in the data. The Sigmoid activation is used in the output layer binary classification to output probabilities.
+    - For the first model I used two hidden layers with 100 neurons each. ReLU activation functions are used in the hidden layers to introduce non-linearity and allow the model to learn complex relationships in the data. The Sigmoid activation is used in the output layer binary classification to output probabilities. The model was fit with 100 epochs.
     ![alt text](model.png)
+    - The second model I used two hidden layers with 120 neurons each. ReLU activation functions are used in the hidden layers to introduce non-linearity and allow the model to learn complex relationships in the data. The Sigmoid activation is used in the output layer binary classification to output probabilities. The model was fit with 30 epochs.
+    ![alt text](model-1.png)
+    - The third model I used two hidden layers with 260 neurons each. ReLU activation functions are used in the hidden layers to introduce non-linearity and allow the model to learn complex relationships in the data. The Sigmoid activation is used in the output layer binary classification to output probabilities. The model was fit with 50 epochs.
+    ![alt text](model-2.png)
+    - The fourth and final model I used two hidden layers with 160 and 100 neurons. ReLU activation functions are used in the hidden layers to introduce non-linearity and allow the model to learn complex relationships in the data. Dropout regularization is applied to both hidden layers with a dropout rate of 0.5 to prevent overfitting. The Sigmoid activation is used in the output layer binary classification to output probabilities. The optimizer was also added in an effort to to minimize the loss function. The model was fit with 200 epochs and batch size 32.
+    ![alt text](model-3.png)
 
  - Were you able to achieve the target model performance?
-    - I was not successful
+    - I was not successful in achieving the target performance.
+        - AlphabetSoupCharity model results:
+        ![alt text](model-result.png)
+        - AlphabetSoupCharity_Optimization1 model results:
+        ![alt text](model1-result.png)
+        - AlphabetSoupCharity_Optimization2 model results:
+        ![alt text](model2-result.png)
+        - AlphabetSoupCharity_Optimization3 model results:
+        ![alt text](model3-result.png)
+
  - What steps did you take in your attempts to increase model performance?
+    - I adjusted the number of neurons and epochs in each attempt. The final attempt I also added optimization.
 
-
-
-# Summary
+## Summary
 Overall, the deep learning model provides a promising approach for predicting charity donations based on individual characteristics. However, if the target model performance is not achieved with the current approach, we might recommend exploring other machine learning algorithms such as Random Forests, Gradient Boosting Machines, or Support Vector Machines. These algorithms are known for their effectiveness in classification tasks and may provide better performance for this particular problem. Additionally, ensemble methods combining multiple models could also be explored to further improve prediction accuracy.
 
-# Project Instructions
+## Project Instructions
 Step 1: Preprocess the Data
 - Using your knowledge of Pandas and scikit-learn’s StandardScaler(), you’ll need to preprocess the dataset. This step prepares you for Step 2, where you'll compile, train, and evaluate the neural network model.
 
@@ -43,9 +55,9 @@ Step 1: Preprocess the Data
     - Split the preprocessed data into a features array, X, and a target array, y. Use these arrays and the train_test_split function to split the data into training and testing datasets.
     - Scale the training and testing features datasets by creating a StandardScaler instance, fitting it to the training data, then using the transform function.
 
-Step 2: Compile, Train, and Evaluate the Model
-Using your knowledge of TensorFlow, you’ll design a neural network, or deep learning model, to create a binary classification model that can predict if an Alphabet Soup-funded organization will be successful based on the features in the dataset. You’ll need to think about how many inputs there are before determining the number of neurons and layers in your model. Once you’ve completed that step, you’ll compile, train, and evaluate your binary classification model to calculate the model’s loss and accuracy.
-
+Step 2: 
+- Compile, Train, and Evaluate the Model
+- Using your knowledge of TensorFlow, you’ll design a neural network, or deep learning model, to create a binary classification model that can predict if an Alphabet Soup-funded organization will be successful based on the features in the dataset. You’ll need to think about how many inputs there are before determining the number of neurons and layers in your model. Once you’ve completed that step, you’ll compile, train, and evaluate your binary classification model to calculate the model’s loss and accuracy.
     - Continue using the file in Google Colab in which you performed the preprocessing steps from Step 1.
     - Create a neural network model by assigning the number of input features and nodes for each layer using TensorFlow and Keras.
     - Create the first hidden layer and choose an appropriate activation function.
